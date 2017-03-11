@@ -16,16 +16,16 @@
     <div ng-controller="HomeController as homeCtrl">
         <div id="container">
             <label>MoneyIn</label>
-            <input type="text" ng-model="homeCtrl.description"></input>
+            <input type="text" ng-model="homeCtrl.incomeDescription"></input>
             <input type="number" ng-model="homeCtrl.moneyIn"></input>
-            <button class="btn btn-primary" type="button" ng-click="homeCtrl.click()">Add Chedda</button>
+            <button class="btn btn-primary" type="button" ng-click="homeCtrl.incomeClick()">Add Chedda</button>
             <table class="table table-condensed">
                 <tr>
                     <th>description</th>
                     <th>Amount</th>
                 </tr>
-                <tr ng-repeat="item in homeCtrl.list">
-                    <td>{{item.description}}</td>
+                <tr ng-repeat="item in homeCtrl.incomeArray">
+                    <td>{{item.incomeDescription}}</td>
                     <td>{{item.moneyIn}}</td>
                 </tr>
             </table>
