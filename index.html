@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="BudgetApp">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<div id="container">
+    <div class="jumbotron">
+        <h1> Money in vs Money Out </h1>
+    </div>
+</div>
+<hr>
+
+<body>
+    <div ng-controller="HomeController as homeCtrl">
+        <div id="container">
+            <label>MoneyIn</label>
+            <input type="text" ng-model="homeCtrl.description"></input>
+            <input type="number" ng-model="homeCtrl.moneyIn"></input>
+            <button class="btn btn-primary" type="button" ng-click="homeCtrl.click()">Add Chedda</button>
+            <table class="table table-condensed">
+                <tr>
+                    <th>description</th>
+                    <th>Amount</th>
+                </tr>
+                <tr ng-repeat="item in homeCtrl.list">
+                    <td>{{item.description}}</td>
+                    <td>{{item.moneyIn}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/home/home.controller.js"></script>
+</body>
+
+</html>
