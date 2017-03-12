@@ -5,16 +5,14 @@
     <meta charset="utf-8">
     <title></title>
 </head>
-<div id="container">
-    <div class="jumbotron">
-        <h1> Money in vs Money Out </h1>
-    </div>
-</div>
-<hr>
 
-<body>
-    <div ng-controller="HomeController as homeCtrl">
-        <div id="container">
+<body ng-controller="HomeController as homeCtrl">
+    <div id="container">
+        <div class="jumbotron">
+            <h1> Money in vs Money Out </h1>
+        </div>
+        <hr>
+        <div id="incomeContainer">
             <label>MoneyIn</label>
             <input type="text" ng-model="homeCtrl.incomeDescription"></input>
             <input type="number" ng-model="homeCtrl.moneyIn"></input>
@@ -30,8 +28,34 @@
                 </tr>
             </table>
         </div>
-    </div>
+        <div id="expenseContainer">
+            <label>MoneyOut</Label>
+            <input type="text" ng-model="homeCtrl.expenseDescription"></input>
+            <input type="number" ng-model="homeCtrl.moneyOut"></input>
+            <button class="btn btn-primary" type="button" ng-click="homeCtrl.expenseClick()">Spend Cheese</button>
 
+
+            <table class="table table-condensed">
+                <tr>
+                    <th>description</th>
+                    <th>Amount</th>
+                </tr>
+                <tr ng-repeat="item in homeCtrl.expenseArray">
+                    <td>{{item.expenseDescription}}</td>
+                    <td>{{item.moneyOut}}</td>
+                </tr>
+            </table>
+        </div>
+        <div id="summaryContainer">
+            <label>Moeny in Da Bank</label>
+            <p>{{homeCtrl.totalIncome}}</p>
+            <label>Money spent on a Drank</label>
+            <p>{{homeCtrl.totalExpense}}</p>
+            <label>All you got left</label>
+            <p>{{homeCtrl.moneyLeft}}</p>
+        </div>
+
+    </div>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
