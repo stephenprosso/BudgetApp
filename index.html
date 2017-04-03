@@ -7,38 +7,45 @@
 </head>
 
 <body ng-controller="HomeController as homeCtrl">
-    <div id="container">
-        <div class="jumbotron">
-            <h1> Money in vs Money Out </h1>
+    <div class="col-md-1"></div>
+
+    <div align="left">
+        <h1>Simple Budget App</h1>
+    </div>
+    <hr>
+    <div id="container" class="row">
+        <div class="col-md-1">
         </div>
-        <hr>
-        <div id="incomeContainer">
-            <label>MoneyIn</label>
-            <input type="text" ng-model="homeCtrl.incomeDescription"></input>
+        <div id="incomeContainer" border-style="solid" class="col-md-4">
+            <label>Income</label>
+            <input type="text" placeholder="Insert Here" ng-model="homeCtrl.incomeDescription"></input>
             <input type="number" ng-model="homeCtrl.moneyIn"></input>
-            <button class="btn btn-primary" type="button" ng-click="homeCtrl.incomeClick()">Add Chedda</button>
+            <button class="btn btn-link" type="button" ng-click="homeCtrl.incomeClick()">Click To Add</button>
+
             <table class="table table-condensed">
                 <tr>
-                    <th>description</th>
-                    <th>Amount</th>
+                    <th>Income Description</th>
+                    <th>Income Value</th>
                 </tr>
+
                 <tr ng-repeat="item in homeCtrl.incomeArray">
                     <td>{{item.incomeDescription}}</td>
                     <td>{{item.moneyIn}}</td>
                 </tr>
             </table>
         </div>
-        <div id="expenseContainer">
-            <label>MoneyOut</Label>
-            <input type="text" ng-model="homeCtrl.expenseDescription"></input>
+        <div class="col-md-1">
+        </div>
+        <div id="expenseContainer" class="col-md-4">
+            <label>Outgoing Funds</Label>
+            <input type="text" placeholder="Insert Here" ng-model="homeCtrl.expenseDescription"></input>
             <input type="number" ng-model="homeCtrl.moneyOut"></input>
-            <button class="btn btn-primary" type="button" ng-click="homeCtrl.expenseClick()">Spend Cheese</button>
-
+            <button class="btn btn-link" type="button" ng-click="homeCtrl.expenseClick()">Click to Spend</button>
 
             <table class="table table-condensed">
                 <tr>
-                    <th>description</th>
-                    <th>Amount</th>
+                    <th>Outgoing Description</th>
+                    <th>Outgoing Amount</th>
                 </tr>
                 <tr ng-repeat="item in homeCtrl.expenseArray">
                     <td>{{item.expenseDescription}}</td>
@@ -46,16 +53,30 @@
                 </tr>
             </table>
         </div>
-        <div id="summaryContainer">
-            <label>Moeny in Da Bank</label>
-            <p>{{homeCtrl.totalIncome}}</p>
-            <label>Money spent on a Drank</label>
-            <p>{{homeCtrl.totalExpense}}</p>
-            <label>All you got left</label>
-            <p>{{homeCtrl.moneyLeft}}</p>
+        <div class="col-md-1">
         </div>
-
     </div>
+    <div class="row" align="center">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10">
+        <table class="table table-condensed">
+            <tr>
+                <th>Income Saved</th>
+                <th>Outgoing Funds</th>
+                <th>Remaining Funds</th>
+            </tr>
+            <tr>
+                <td>{{homeCtrl.totalIncome}}</td>
+                <td>{{homeCtrl.totalExpense}}</td>
+                <td>{{homeCtrl.moneyLeft}}</td>
+            </tr>
+        </table>
+      </div>
+      <div class="col-md-1">
+      </div>
+    </div>
+
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
